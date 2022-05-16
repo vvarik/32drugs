@@ -1,0 +1,14 @@
+---
+title: "32 drugs"
+output: 
+    md_document:
+      preserve_yaml: FALSE
+      fig_width: 7
+      fig_height: 5
+      toc: yes
+      toc_depth: 2
+---
+
+
+Getting Carlota up to speed with R using dose-response for 32 drugs against 6
+bacterial strains.
