@@ -5,6 +5,12 @@ bacterial strains.
 
 # Tasks
 
+In the following, we’re going to go through the most common steps in
+data analysis: exploration and transformation (to derive new variables).
+Integral to both steps is visualization i.e. making graphs.
+
+## Explore
+
 1.  Plot raw OD growth curves. [Input data](doc/tasks/01_dat.csv) and
     expected [output plot](doc/tasks/01_out.pdf) are provided. The data
     is for azithromycin against *S. flexneri* M90T from day 2022-05-04
