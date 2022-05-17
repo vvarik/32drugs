@@ -12,7 +12,7 @@ to both steps is visualization i.e. making graphs.
 ## Explore
 
 As a first look, the exploratory plots are informative and serve as a
-quality control i.e. you know now that there is nothing extra suspicious
+quality control i.e. you check that there is nothing extra suspicious
 going on. Raw OD will suffice for that.
 
 1.  Plot growth curves following raw OD in time. Input
