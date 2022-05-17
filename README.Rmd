@@ -15,6 +15,14 @@ Getting up to speed with R using dose-response for 32 drugs against 6
 bacterial strains.
 
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, dpi=300, 
+  fig.path = "output/fig/")
+knitr::opts_knit$set(global.par = TRUE)
+library('tidyverse')
+```
+
+
 # Tasks
 
 In the following, we go through the most common steps in data analysis:
