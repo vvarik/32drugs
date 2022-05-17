@@ -17,9 +17,9 @@ bacterial strains.
 
 # Tasks
 
-In the following, we're going to go through the most common steps in data
-analysis: exploration and transformation (to derive new variables). Integral
-to both steps is visualization i.e. making graphs.
+In the following, we go through the most common steps in data analysis:
+exploration and transformation (to derive new variables). Integral to both
+steps is visualization i.e. making graphs.
 
 ## Explore
 
