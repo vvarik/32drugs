@@ -39,7 +39,8 @@ goin on. Raw OD will suffice for that.
 To quantify the growth (either rate or yield) one needs to substract the
 background from raw OD. There are two ways to do that: 1) using a
 readout from just the medium; 2) using the smallest value per well
-(across the time). I prefer to use the former whenever possible.
+(i.e. OD in one of the first timepoints of a particular well). I prefer
+to use the former whenever possible.
 
 1.  Add an `OD` variable to your dataframe for background subtracted OD.
     You need two things: 1) to `group` the data and 2) a way to point to
