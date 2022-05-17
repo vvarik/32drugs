@@ -26,8 +26,10 @@ library('tidyverse')
 # Tasks
 
 In the following, we go through the most common steps in data analysis:
-exploration and transformation (i.e. deriving new variables). Integral to both
-steps is visualization i.e. making graphs.
+exploration, transformation (i.e. deriving new variables) and modeling (using
+statistical tools to answer questions: what happens on average, which
+conditions are different and so on). Integral to all steps is visualization
+i.e. making graphs. 
 
 ## Explore
 
