@@ -25,7 +25,7 @@ to both steps is visualization i.e. making graphs.
 
 3.  Once more, now with [data](doc/tasks/03_dat.csv) from three days.
     Expected [output](doc/tasks/03_out.pdf). You will encounter an issue
-    because there were two biological replicates on that day. There are
+    because there were two biological replicates on third day. There are
     multiple ways to overcome this, but for now, I recommend to solve by
     using `group` parameter of `aes`
     e.g. `ggplot(aes(..., group = Plt))`.
