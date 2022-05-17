@@ -15,7 +15,7 @@ to both steps is visualization i.e. making graphs.
     [data](doc/tasks/01_dat.csv) and expected
     [output](doc/tasks/01_out.pdf) plot are provided. The data is for
     azithromycin against *S. flexneri* M90T from day 2022-05-04 (first
-    replicate). *A tip: Use `facet_wrap` with `ncol    = 1` argument to
+    replicate). *A tip: Use `facet_wrap` with `ncol = 1` argument to
     have different concentrations on separate plots.*
 
 2.  Try again, now with [data](doc/tasks/02_dat.csv) from two days (let
