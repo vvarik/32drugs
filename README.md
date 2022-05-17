@@ -49,18 +49,7 @@ to use the former whenever possible.
     on each day, on each plate, in each timepoint. The wells with no
     bacteria were encoded to have `uM =    -1` i.e. after appropriate
     grouping it comes down to: `OD = OD/OD[uM ==    -1]`. Input
-    [data](doc/tasks/03_dat.csv) is the same as in step 3 above. And
-    output should look like shown below (first six rows and only subset
-    of columns shown).
-
-<!-- -->
-
-    ## # A tibble: 6 × 7
-    ##   Date         Plt Well  Time_h RawOD    uM    OD
-    ##   <date>     <dbl> <chr>  <dbl> <dbl> <dbl> <dbl>
-    ## 1 2022-05-04     4 M1      0    0.217   100 0.03 
-    ## 2 2022-05-04     4 M1      1.08 0.233   100 0.04 
-    ## 3 2022-05-04     4 M1      2.16 0.213   100 0.018
-    ## 4 2022-05-04     4 M1      3.24 0.213   100 0.021
-    ## 5 2022-05-04     4 M1      4.32 0.212   100 0.022
-    ## 6 2022-05-04     4 M1      5.41 0.211   100 0.022
+    [data](doc/tasks/03_dat.csv) (the same as in step 3 above). And if
+    you now plot everything exactly as in step 3 above, except having OD
+    on y-axis, here’s what [output](doc/tasks/04_out.pdf) should look
+    like.
