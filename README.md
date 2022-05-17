@@ -6,10 +6,8 @@ bacterial strains.
 # Tasks
 
 In the following, we go through the most common steps in data analysis:
-exploration, transformation (i.e. deriving new variables) and modeling
-(using statistical tools to answer questions: what happens on average,
-which conditions are different and so on). Integral to all steps is
-visualization i.e. making graphs.
+exploration, transformation (i.e. deriving new variables) and modeling.
+Integral to all steps is visualization i.e. making graphs.
 
 ## Explore
 
@@ -18,10 +16,10 @@ quality control i.e. you check that there is nothing extra suspicious
 going on. Raw OD will suffice for that.
 
 1.  Plot growth curves following raw OD in time. Input
-    [data](doc/tasks/01_dat.csv) and expected output is shown below. The
-    data is for azithromycin against *S. flexneri* M90T from day
-    2022-05-04 (first replicate). *A tip: Use `facet_wrap` with
-    `ncol = 1` argument to have different concentrations on separate
+    [data](doc/tasks/01_dat.csv) is provided and expected output plot is
+    shown below. The data is for azithromycin against *S. flexneri* M90T
+    from day 2022-05-04 (first replicate). *A tip: Use `facet_wrap` with
+    `nrow = 1` argument to have different concentrations on separate
     plots.*
 
     ![](doc/tasks/01_out.png)
@@ -35,9 +33,9 @@ going on. Raw OD will suffice for that.
 
 3.  Once more, now with [data](doc/tasks/03_dat.csv) from three days.
     You will encounter an issue because there were two biological
-    replicates on third day. There are multiple ways to overcome this,
-    but for now, I recommend to solve by using `group` parameter of
-    `aes` e.g.  `ggplot(aes(..., group = Plt))`.
+    replicates on third day. There are multiple ways to overcome this. I
+    recommend to solve it via `group` parameter of `aes` e.g. 
+    `ggplot(aes(..., group = Plt))`.
 
     ![](doc/tasks/03_out.png)
 
@@ -56,8 +54,8 @@ to use the former whenever possible.
     on each day, on each plate, in each timepoint. The wells with no
     bacteria were encoded to have `uM = -1` i.e. after appropriate
     grouping it comes down to: `OD = OD/OD[uM == -1]`. Input
-    [data](doc/tasks/03_dat.csv) is the same as in step 3 above. And if
-    you now plot everything exactly as in step 3 above, except having OD
+    [data](doc/tasks/03_dat.csv) is the same as in step 3 above.
+    Finally, plot the result exactly as in step 3 above, except have OD
     on y-axis. I choose also to drop the background control
     (`uM == -1`).
 
@@ -70,8 +68,8 @@ to use the former whenever possible.
     Experience tells that at OD<sub>595</sub> with 30 µL/well in LB, the
     limit of detection is ~0.03. So the final step for deriving
     background subtracted ODs is to constrain OD at 0.03. Multiple ways
-    are again possible, I would go for `ifelse` statement. Now, plot as
-    you did above.
+    are again possible, I would go for `ifelse` statement. Finally, plot
+    the result as you did above.
 
     ![](doc/tasks/05_out.png)
 
@@ -82,14 +80,14 @@ to use the former whenever possible.
     better/worse do bacteria grow upon treatment. To that end, use the
     same grouping as for OD (on each day, on each plate, in each
     timepoint) and derive fitness as `OD = OD/OD[uM == 0]`. Please also
-    constrain `Fit` to 1.1 (there’s no real need for constraining
-    fitness, it is just for making plots look nicer). Now, plot the
-    result exactly as in the step above, except have `Fit` on y-axis.
+    constrain `Fit` to 1.1 (just for making plots look nicer). Finally,
+    plot the result as in the step above, except have `Fit` on y-axis.
 
     ![output](doc/tasks/06_out.png)
 
 ## Model
 
 The distinction between transforming and modeling is a subtle one,
-arbitrary really. For what I can tell, modelling usually entails
-slightly more sophisticated data transformations.
+arbitrary really. Modeling usually entails slightly more sophisticated
+transformations to summarize data and to ask questions e.g. ‘is this
+different from that’.
