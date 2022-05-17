@@ -11,14 +11,15 @@ both steps is visualization i.e. making graphs.
 
 ## Explore
 
-1.  Plot growth curves following raw OD in time. [Input
-    data](doc/tasks/01_dat.csv) and expected [output
-    plot](doc/tasks/01_out.pdf) are provided. The data is for
+1.  Plot growth curves following raw OD in time. Input
+    [data](doc/tasks/01_dat.csv) and expected
+    [output](doc/tasks/01_out.pdf) plot are provided. The data is for
     azithromycin against *S. flexneri* M90T from day 2022-05-04 (first
-    replicate). *A tip: Use `facet_wrap` with `ncol = 1` argument to
+    replicate). *A tip: Use `facet_wrap` with `ncol    = 1` argument to
     have different concentrations on separate plots.*
 
 2.  Try again, now with [data](doc/tasks/02_dat.csv) from two days (let
     us plot days in different color). In addition, transform the y-axis
-    to logarithmic scale. [Expected output](doc/tasks/02_out.pdf). \_A
-    tip: you need to turn the `Date` variable into a factor.\`
+    to logarithmic scale. Expected [output](doc/tasks/02_out.pdf). *A
+    tip: you need to turn the `Date` variable into a factor.*
+
