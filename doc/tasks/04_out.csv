@@ -1,0 +1,7 @@
+Date,Plt,Well,WellID,Time_h,RawOD,Col,Row,Cpd,Qrt,uM,Species,Strain,Nick,Dil,OD
+2022-05-04,4,M1,1-4-M1,0,0.217,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.03
+2022-05-04,4,M1,1-4-M1,1.08,0.233,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.04
+2022-05-04,4,M1,1-4-M1,2.16,0.213,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.018
+2022-05-04,4,M1,1-4-M1,3.24,0.213,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.021
+2022-05-04,4,M1,1-4-M1,4.32,0.212,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.022
+2022-05-04,4,M1,1-4-M1,5.41,0.211,1,M,Azithromycin,1,100,S. flexneri,M90T,Sf,100x,0.022
