@@ -6,8 +6,8 @@ bacterial strains.
 # Tasks
 
 In the following, we go through the most common steps in data analysis:
-exploration and transformation (to derive new variables). Integral to
-both steps is visualization i.e. making graphs.
+exploration and transformation (i.e. deriving new variables). Integral
+to both steps is visualization i.e. making graphs.
 
 ## Explore
 
@@ -27,6 +27,5 @@ both steps is visualization i.e. making graphs.
     Expected [output](doc/tasks/03_out.pdf). You will encounter an issue
     because there were two biological replicates on that day. There are
     multiple ways to overcome this, but for now, I recommend to solve by
-    issuing `group =    WellID` to `aes` of `ggplot`.
     using `group` parameter of `aes`
     e.g. `ggplot(aes(..., group = Plt))`.
