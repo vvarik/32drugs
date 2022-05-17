@@ -11,6 +11,10 @@ to both steps is visualization i.e. making graphs.
 
 ## Explore
 
+As a first look, the eploratory plots are informative and serve as a
+quality control i.e. you know now that there is nothing extra suspicious
+goin on. Raw OD will suffice for that.
+
 1.  Plot growth curves following raw OD in time. Input
     [data](doc/tasks/01_dat.csv) and expected
     [output](doc/tasks/01_out.pdf) plot are provided. The data is for
