@@ -11,9 +11,9 @@ to both steps is visualization i.e. making graphs.
 
 ## Explore
 
-As a first look, the eploratory plots are informative and serve as a
+As a first look, the exploratory plots are informative and serve as a
 quality control i.e. you know now that there is nothing extra suspicious
-goin on. Raw OD will suffice for that.
+going on. Raw OD will suffice for that.
 
 1.  Plot growth curves following raw OD in time. Input
     [data](doc/tasks/01_dat.csv) and expected
@@ -36,7 +36,7 @@ goin on. Raw OD will suffice for that.
 
 ## Transform
 
-To quantify the growth (either rate or yield) one needs to substract the
+To quantify the growth (either rate or yield) one needs to subtract the
 background from raw OD. There are two ways to do that: 1) using a
 readout from just the medium; 2) using the smallest value per well
 (i.e. OD in one of the first timepoints of a particular well). I prefer
