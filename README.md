@@ -53,3 +53,13 @@ to use the former whenever possible.
     you now plot everything exactly as in step 3 above, except having OD
     on y-axis, here’s what [output](doc/tasks/04_out.pdf) should look
     like.
+
+2.  Constrain the OD at limit of detection. You might have noticed on
+    the previous plot that some of the growth curves start at very low
+    values. In fact, some of the ODs ended up negative. This is because
+    the values are actually lower bound by limit of detection (LOD).
+    Experience tells that at OD<sub>595</sub> with 30 µL/well in LB, the
+    limit of detection is ~0.03. So the final step for deriving
+    background subtracted ODs is to constrain OD at 0.03. Multiple ways
+    are again possible, I would go for `ifelse` statement. Here’s what
+    the resulting [output](doc/tasks/05_out.pdf) plot should look like.
