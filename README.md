@@ -65,3 +65,16 @@ to use the former whenever possible.
     background subtracted ODs is to constrain OD at 0.03. Multiple ways
     are again possible, I would go for `ifelse` statement. Here’s what
     the resulting [output](doc/tasks/05_out.pdf) plot should look like.
+
+3.  Add a `Fit` variable to your dataframe for fitness. OD is a fine
+    measure and much can be learned staring at growth curves
+    \[[ref](https://www.annualreviews.org/doi/abs/10.1146/annurev.mi.03.100149.002103)\].
+    But we’re interested in the effect of the drug i.e. how much
+    better/worse do bacteria grow upon treatment. To that end, use the
+    same grouping as for OD (on each day, on each plate, in each
+    timepoint) and derive fitness as `OD = OD/OD[uM == 0]`. Please also
+    constrain `Fit` to 1.1 (there’s no real need for constraining
+    fitness, it is just for making plots look nicer). Here’s what
+    [output](doc/tasks/06_out.pdf) plot should look like if you now plot
+    everything exactly as in the step above, except having `Fit` on
+    y-axis.
