@@ -18,6 +18,7 @@ both steps is visualization i.e. making graphs.
     replicate). *A tip: Use `facet_wrap` with `ncol = 1` argument to
     have different concentrations on separate plots.*
 
-2.  Try again, now with [data](doc/tasks/02_dat.csv) from two days. In
-    addition, transform the y-axis to logarithmic scale. [Expected
-    output](doc/tasks/02_out.pdf).
+2.  Try again, now with [data](doc/tasks/02_dat.csv) from two days (let
+    us plot days in different color). In addition, transform the y-axis
+    to logarithmic scale. [Expected output](doc/tasks/02_out.pdf). \_A
+    tip: you need to turn the `Date` variable into a factor.\`
