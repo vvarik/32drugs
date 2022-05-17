@@ -18,23 +18,28 @@ quality control i.e. you check that there is nothing extra suspicious
 going on. Raw OD will suffice for that.
 
 1.  Plot growth curves following raw OD in time. Input
-    [data](doc/tasks/01_dat.csv) and expected
-    [output](doc/tasks/01_out.pdf) plot are provided. The data is for
-    azithromycin against *S. flexneri* M90T from day 2022-05-04 (first
-    replicate). *A tip: Use `facet_wrap` with `ncol = 1` argument to
-    have different concentrations on separate plots.*
+    [data](doc/tasks/01_dat.csv) and expected output is shown below. The
+    data is for azithromycin against *S. flexneri* M90T from day
+    2022-05-04 (first replicate). *A tip: Use `facet_wrap` with
+    `ncol = 1` argument to have different concentrations on separate
+    plots.*
+
+    ![](doc/tasks/01_out.png)
 
 2.  Try again, now with [data](doc/tasks/02_dat.csv) from two days (let
     us plot days in different color). In addition, transform the y-axis
-    to logarithmic scale. Expected [output](doc/tasks/02_out.pdf). *A
-    tip: you need to turn the `Date` variable into a factor.*
+    to logarithmic scale. Expected output is shown below. *A tip: you
+    need to turn the `Date` variable into a factor.*
+
+    ![](doc/tasks/02_out.png)
 
 3.  Once more, now with [data](doc/tasks/03_dat.csv) from three days.
-    Expected [output](doc/tasks/03_out.pdf). You will encounter an issue
-    because there were two biological replicates on third day. There are
-    multiple ways to overcome this, but for now, I recommend to solve by
-    using `group` parameter of `aes`
-    e.g. `ggplot(aes(..., group = Plt))`.
+    You will encounter an issue because there were two biological
+    replicates on third day. There are multiple ways to overcome this,
+    but for now, I recommend to solve by using `group` parameter of
+    `aes` e.g.  `ggplot(aes(..., group = Plt))`.
+
+    ![](doc/tasks/03_out.png)
 
 ## Transform
 
@@ -53,18 +58,22 @@ to use the former whenever possible.
     grouping it comes down to: `OD = OD/OD[uM == -1]`. Input
     [data](doc/tasks/03_dat.csv) is the same as in step 3 above. And if
     you now plot everything exactly as in step 3 above, except having OD
-    on y-axis, here’s what [output](doc/tasks/04_out.pdf) should look
-    like.
+    on y-axis. I choose also to drop the background control
+    (`uM == -1`).
 
-2.  Constrain the OD at limit of detection. You might have noticed on
-    the previous plot that some of the growth curves start at very low
+    ![](doc/tasks/04_out.png)
+
+2.  Constrain the OD at limit of detection. You might notice on the
+    previous plot that some of the growth curves start at very low
     values. In fact, some of the ODs ended up negative. This is because
     the values are actually lower bound by limit of detection (LOD).
     Experience tells that at OD<sub>595</sub> with 30 µL/well in LB, the
     limit of detection is ~0.03. So the final step for deriving
     background subtracted ODs is to constrain OD at 0.03. Multiple ways
-    are again possible, I would go for `ifelse` statement. Here’s what
-    the resulting [output](doc/tasks/05_out.pdf) plot should look like.
+    are again possible, I would go for `ifelse` statement. Now, plot as
+    you did above.
+
+    ![](doc/tasks/05_out.png)
 
 3.  Add a `Fit` variable to your dataframe for fitness. OD is a fine
     measure and much can be learned staring at growth curves
@@ -74,7 +83,13 @@ to use the former whenever possible.
     same grouping as for OD (on each day, on each plate, in each
     timepoint) and derive fitness as `OD = OD/OD[uM == 0]`. Please also
     constrain `Fit` to 1.1 (there’s no real need for constraining
-    fitness, it is just for making plots look nicer). Here’s what
-    [output](doc/tasks/06_out.pdf) plot should look like if you now plot
-    everything exactly as in the step above, except having `Fit` on
-    y-axis.
+    fitness, it is just for making plots look nicer). Now, plot the
+    result exactly as in the step above, except have `Fit` on y-axis.
+
+    ![output](doc/tasks/06_out.png)
+
+## Model
+
+The distinction between transforming and modeling is a subtle one,
+arbitrary really. For what I can tell, modelling usually entails
+slightly more sophisticated data transformations.
