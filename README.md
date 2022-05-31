@@ -116,3 +116,9 @@ result.
     so let us do that.
 
     <img src="doc/tasks/07_out.png" style="width:60.0%" />
+
+2.  Now we fit a curve to this data. We use some equation that describes
+    the curve which is clearly not linear. We cannot avoid a little bit
+    theory/math here. Looks more complicated than it is, read about the
+    basics of a four parameter logistic regression [4PL](doc/4pl.md) and
+    come back.

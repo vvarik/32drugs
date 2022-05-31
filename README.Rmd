@@ -114,3 +114,10 @@ Good, filtering for `Time_h` between 9.5 and 10.5 h gives a desired result.
    if the dose axis is multiplicative i.e. logarithmic, so let us do that.
     
    ![](doc/tasks/07_out.png){width=60%}
+
+
+8. Now we fit a curve to this data. We use some equation that describes the
+   curve which is clearly not linear. We cannot avoid a little bit theory/math
+   here. Looks more complicated than it is, please read about the basics of a
+   four parameter logistic regression [4PL](doc/4pl.md) and come back. 
+
