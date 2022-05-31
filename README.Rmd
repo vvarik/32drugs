@@ -98,3 +98,19 @@ possible.
 The distinction between transforming and modeling is a subtle one, arbitrary
 really. Modeling usually entails slightly more sophisticated transformations
 to summarize data and to ask questions e.g. 'is this different from that'.
+
+Looking at above plot, it seems that about 8-10h would be a good time to
+score the effect of a drug (fitness is maximally affected there for
+concentrations/replicates). Let's check the closest timepoints to 10h:
+ 
+```{r echo=T}
+filter(dat, Time_h < 10.5, Time_h > 9.5) %>%
+   count(Time_h)
+```
+
+Good, filtering for `Time_h` between 9.5 and 10.5 h gives a desired result.
+
+7. Let us plot the dose-response curve. Dose-response curves are sigmoidal only
+   if the dose axis is multiplicative i.e. logarithmic, so let us do that.
+    
+   ![](doc/tasks/07_out.png){width=60%}
