@@ -1,16 +1,25 @@
-library(ggplot2)
-library(dplyr)
+library(ggplot2)  # VV: not needed, included in tidyverse
+library(dplyr)    # VV: not needed, included in tidiverse 
 library(tidyverse)
 
 # EXPLORE
 ## task1_1
 data <- read.csv("/Users/carlota/Desktop/EMBL/Vallo_R/01_dat.csv", header = TRUE) 
+# VV: A recommended practice is to keep your project/analysis in a single root
+# folder and refer to files using relative path, something like this:
+# data <- read.csv("01_dat.csv", header = TRUE)  or better yet, organized into
+# folders:
+# data <- read.csv("input/data/01_dat.csv", header = TRUE) 
+# This way, you can copy the whole folder and run it on any computer. 
 data %>% 
         select(Time_h, RawOD, uM) %>%
         ggplot(aes(y= RawOD, x = Time_h)) +
         geom_line() +
         labs(x = "Time (h)", y = "Raw OD", title = "Growth curves of S.flexneri M90T with Azithromycin") +
-        facet_wrap(~ uM, labeller = label_both)
+        # VV: just a reminder that you can use nrow & ncol argments with facet
+        # wrap. Here, it does not matter much, but sometimes controlling the
+        # alignement facilitates comparison.
+        facet_wrap(~ uM, labeller = label_both)  
 ggsave(filename = "/Users/carlota/Desktop/EMBL/Vallo_R/plot1_1.pdf")
 
 ## task1_2
@@ -93,6 +102,7 @@ ggsave(filename = "/Users/carlota/Desktop/EMBL/Vallo_R/plot1_5.pdf")
 data3 <- read.csv("/Users/carlota/Desktop/EMBL/Vallo_R/03_dat.csv", header = TRUE) %>% 
         group_by(Date, Time_h, Plt) %>% 
         mutate(  
+        # 
                 background = RawOD[uM ==-1],
                 OD = RawOD - background)  
 
@@ -100,7 +110,12 @@ data3 <- read.csv("/Users/carlota/Desktop/EMBL/Vallo_R/03_dat.csv", header = TRU
 data3$OD <- ifelse(data3$OD < 0.03, 0.03, data3$OD)
 
 data3 <- group_by(data3, Date, Time_h, Plt) %>% 
+  # VV: You can, of course, call it any way you like, but fit_ref is a little
+  # misleading, OD_ref would be more to the point.
         mutate(fit_ref = OD[uM == 0],
+  # VV: Here, at this step, you could right away use the `fit_ref` variable
+  # defined first in mutate call:
+  #            fit = OD/fit_ref)
                fit = OD/OD[uM == 0])
 
 # constrain fitness to value of 1.1
