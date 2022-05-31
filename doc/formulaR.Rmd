@@ -1,0 +1,72 @@
+---
+title: "Formula interface"
+output: 
+    md_document:
+      preserve_yaml: FALSE
+      fig_width: 3
+      fig_height: 3
+      toc: yes
+      toc_depth: 2
+---
+
+# Formula interface in R
+
+Let us take a step back and look at some data built in R. `cars` dataset
+describes the speed of cars and the corresponding distance it takes to stop.
+
+```{r}
+p1 = cars %>% 
+  ggplot(aes(speed, dist)) +
+  geom_point()
+p1
+```
+
+There is a trend in the data: with increased speed, cars stop at a longer
+distance. One way to illustrate this trend comes with `ggplot2`:
+
+```{r}
+p1 + geom_smooth()
+```
+
+The result is a familiar loess function from MS Excel. The trend, however, seems unnecessary wiggly and linear trend line would probably suffice. To do that with `ggplot2`, issue `method = 'lm'` to `geom_smooth`:
+
+```{r}
+p1 + geom_smooth(method = 'lm')
+```
+
+What if we would like to know the equation for such a linear model? To do that, we use `lm` (stands for linear model) function:
+
+```{r}
+mod = lm(dist ~ speed, data = cars)
+```
+
+`lm` uses formula interface (`y ~ x`): we tell `lm` this way that we want to
+explain the `distance` using `speed` and direct the function for these
+variables in cars dataframe.
+
+The intercept and slope can be printed out:
+
+```{r}
+mod
+```
+
+Formula interface is used throughout R. We can use it for plotting. Instead of:
+
+```{r}
+plot(cars$speed, cars$dist)
+```
+
+we can do:
+
+```{r}
+plot(dist ~ speed, cars)
+```
+
+Notice that in the formula interface, _y_ comes first.
+
+It is beyond the scope, but we can add the linear model to our last plot:
+
+```{r}
+plot(dist ~ speed, cars)
+abline(mod)
+```
