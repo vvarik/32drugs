@@ -29,7 +29,7 @@ only new thing is `fct` argument. `fct` defines the exact function to be
 used and some sane initial values for parameters. For four parameter
 logistic regression, we need to set `fct = LL.4` (log-logistic with 4
 parameters, the extra “log” is just to denote that x-axis is in log
-scale; there is alos LL.3 for instance, this sets slope to be 1).
+scale; there is also LL.3 for instance, this sets slope to be 1).
 
     mod = drm(rootl ~ conc, data = ryegrass, fct = LL.4())
 
@@ -44,10 +44,10 @@ explain four-parameter logistic regression:
 
 ![](drc_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
+![](tasks/drm_ryegrass.png)
+
 We can get a summary of the model parameters using the `summary`
-function and calculate the IC<sub>10</sub> (dose that gives 10% of
-effect), IC<sub>20</sub>, IC<sub>50</sub>, IC<sub>90</sub> etc with the
-`ED` function.
+function
 
     summary(mod)
 
@@ -67,6 +67,10 @@ effect), IC<sub>20</sub>, IC<sub>50</sub>, IC<sub>90</sub> etc with the
     ## Residual standard error:
     ## 
     ##  0.5196256 (20 degrees of freedom)
+
+We can calculate the IC<sub>10</sub> (dose that gives 10% of effect),
+IC<sub>20</sub>, IC<sub>50</sub>, IC<sub>90</sub> etc with the `ED`
+function.
 
     #interval = "delta" gives confidence intervals at a default 95% level.  
     ED(mod, c(10,20,50, 90), interval="delta")

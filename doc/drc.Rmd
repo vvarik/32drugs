@@ -32,7 +32,7 @@ str(ryegrass)
 ?ryegrass
 ```
 
-The workhorse of the `drc` is function `drm` (Dose-Response Model) and it works pretty similarly to `lm` which we used to fit linear model. The only new thing is `fct` argument. `fct` defines the exact function to be used and some sane initial values for parameters. For four parameter logistic regression, we need to set `fct = LL.4` (log-logistic with 4 parameters, the extra "log" is just to denote that x-axis is in log scale; there is alos LL.3 for instance, this sets slope to be 1).
+The workhorse of the `drc` is function `drm` (Dose-Response Model) and it works pretty similarly to `lm` which we used to fit linear model. The only new thing is `fct` argument. `fct` defines the exact function to be used and some sane initial values for parameters. For four parameter logistic regression, we need to set `fct = LL.4` (log-logistic with 4 parameters, the extra "log" is just to denote that x-axis is in log scale; there is also LL.3 for instance, this sets slope to be 1).
 
 ```{r}
 mod = drm(rootl ~ conc, data = ryegrass, fct = LL.4())
@@ -47,13 +47,16 @@ mod = drm(rootl ~ conc, data = ryegrass,
 plot(mod, type = 'all')
 ```
 
-We can get a summary of the model parameters using the `summary` function and
-calculate the IC~10~ (dose that gives 10% of effect), IC~20~, IC~50~, IC~90~
-etc with the `ED` function.
+![](tasks/drm_ryegrass.png)
+
+We can get a summary of the model parameters using the `summary` function
 
 ```{r}
 summary(mod)
 ```
+
+We can calculate the IC~10~ (dose that gives 10% of effect), IC~20~, IC~50~,
+IC~90~ etc with the `ED` function.
 
 ```{r}
 #interval = "delta" gives confidence intervals at a default 95% level.  
