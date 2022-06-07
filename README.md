@@ -126,3 +126,5 @@ result.
         [4PL](doc/4pl.md)
     -   [Formula interface](doc/formulaR.md), a very powerful and
         indispensable tool for modelling in R.
+    -   Introduction to [drc](doc/drc.md) package, a dedicated package
+        for DoseResponseCurves that allows one to fit them in no time.
