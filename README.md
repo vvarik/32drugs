@@ -128,3 +128,12 @@ result.
         indispensable tool for modelling in R.
     -   Introduction to [drc](doc/drc.md) package, a dedicated package
         for DoseResponseCurves that allows one to fit them in no time.
+
+    After all this reading, one must be hyngry for data analysis. Load
+    `drc` library and see if you can make the plot below. There is one
+    issue: `drm` does not know how to handle `uM = -1` – not a real
+    concentration anyways, encoding we used for background control – so
+    get rid of that before fitting.
+
+    <img src="doc/tasks/08_out.png" style="width:60.0%" />
+
