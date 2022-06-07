@@ -96,7 +96,7 @@ Looking at above plot, it seems that about 8-10h would be a good time to
 score the effect of a drug (fitness is maximally affected there for
 concentrations/replicates). Let’s check the closest timepoints to 10h:
 
-    filter(dat, Time_h < 10.5, Time_h > 9.5) %>%
+    filter(dat, Time_h > 9.5, Time_h < 10.5) %>%
        count(Time_h)
 
     ## # A tibble: 4 × 4
@@ -131,9 +131,9 @@ result.
 
     After all this reading, one must be hyngry for data analysis. Load
     `drc` library and see if you can make the plot below. There is one
-    issue: `drm` does not know how to handle `uM = -1` – not a real
-    concentration anyways, encoding we used for background control – so
-    get rid of that before fitting.
+    issue though: `drm` does not know how to handle `uM = -1` – not a
+    real concentration anyways, encoding we used for background control
+    – so get rid of that before fitting.
 
     <img src="doc/tasks/08_out.png" style="width:60.0%" />
 
