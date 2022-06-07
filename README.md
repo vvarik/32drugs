@@ -141,3 +141,19 @@ result.
     azithromycin excerts 95% effect. Can you calculate that with
     confidence intervals?
 
+4.  There is one more thing. An intricacy. We have fitted and plotted
+    (i.e. think about it) the `x`, the concentration, in logarithmic
+    scale, but the IC<sub>50</sub> is in linear scale. Mostly, it does
+    not matter much. You can see above, however, that the lower
+    confidence interval is 5x lower than IC<sub>95</sub> and the upper
+    limit is less than 2x higher. One side is 5 away, the other less
+    than 2x. To fix that, one could estimate IC<sub>50</sub> in log
+    scale (substitute IC<sub>50</sub> in the 4-parameter logistic
+    regression with log(IC<sub>50</sub>)). One might have to take some
+    time to think about it what that means. Luckily, `drm` makes all
+    this easy. You fit the model exactly as you did before, but this
+    time, set `fct` to `LL2.4()`. Finally, when calculating MIC, the
+    confidence interval should be set to “fls” (`interval     = "fls"`).
+
+    Now the MIC (IC<sub>95</sub>) should be the same (33 µM), but the
+    confidence interval are symmetric, about 2x lower and 2x higher.
