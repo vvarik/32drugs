@@ -26,10 +26,13 @@ vector of concentrations of a herbicide.
 The workhorse of the `drc` is function `drm` (Dose-Response Model) and
 it works pretty similarly to `lm` which we used to fit linear model. The
 only new thing is `fct` argument. `fct` defines the exact function to be
-used and some sane initial values for parameters. For four parameter
+used and some sane initial values for parameters (contrary to linear
+regression, estimation of parameters in non-linear regression requires
+some starting estimates of parameter values). For four parameter
 logistic regression, we need to set `fct = LL.4` (log-logistic with 4
 parameters, the extra “log” is just to denote that x-axis is in log
-scale; there is also LL.3 for instance, this sets slope to be 1).
+scale; e.g. there is also LL.3, three parameter version, this sets slope
+to be 1).
 
     mod = drm(rootl ~ conc, data = ryegrass, fct = LL.4())
 
