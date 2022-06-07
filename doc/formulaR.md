@@ -32,7 +32,8 @@ suffice. To do that with `ggplot2`, issue `method = 'lm'` to
 ![](formulaR_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
 What if we would like to know the equation for such a linear model? To
-do that, we use `lm` (stands for linear model) function:
+do that, we use `lm` (stands for linear model) function (which `ggplot`,
+in fact, uses in the background anyways):
 
     mod = lm(dist ~ speed, data = cars)
 

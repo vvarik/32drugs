@@ -34,7 +34,7 @@ The result is a familiar loess function from MS Excel. The trend, however, seems
 p1 + geom_smooth(method = 'lm')
 ```
 
-What if we would like to know the equation for such a linear model? To do that, we use `lm` (stands for linear model) function:
+What if we would like to know the equation for such a linear model? To do that, we use `lm` (stands for linear model) function (which `ggplot`, in fact, uses in the background anyways):
 
 ```{r}
 mod = lm(dist ~ speed, data = cars)
