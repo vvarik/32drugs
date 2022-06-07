@@ -117,10 +117,12 @@ result.
 
     <img src="doc/tasks/07_out.png" style="width:60.0%" />
 
-2.  Now we fit a curve to this data. We use some equation that describes
-    the curve which is clearly not linear. We cannot avoid a little bit
-    theory/math here. Looks more complicated than it is, please read
-    about the basics of a four parameter logistic regression
-    [4PL](doc/4pl.md). We have to make one more brief detour into
-    [formula interface](doc/formulaR.md), very powerful and
-    indispensable tool for modelling in R.
+2.  Now we fit a curve to this data. We have to use some equation that
+    describes the curve which is clearly not linear. We cannot avoid a
+    little bit background here. Looks more complicated than it is,
+    please read about:
+
+    -   The basics of a four parameter logistic regression
+        [4PL](doc/4pl.md)
+    -   [Formula interface](doc/formulaR.md), a very powerful and
+        indispensable tool for modelling in R.
