@@ -137,3 +137,7 @@ result.
 
     <img src="doc/tasks/08_out.png" style="width:60.0%" />
 
+3.  Finally. Let us propose the MIC is the concentration at which the
+    azithromycin excerts 95% effect. Can you calculate that with
+    confidence intervals?
+
