@@ -1,3 +1,5 @@
+\[\[*TOC*\]\]
+
 # Motivation
 
 Getting up to speed with R using dose-response for 32 drugs against 6
