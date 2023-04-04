@@ -1,3 +1,9 @@
+-   [Motivation](#motivation)
+-   [Tasks](#tasks)
+    -   [Explore](#explore)
+    -   [Transform](#transform)
+    -   [Model](#model)
+
 \[\[*TOC*\]\]
 
 # Motivation
@@ -98,17 +104,13 @@ Looking at above plot, it seems that about 8-10h would be a good time to
 score the effect of a drug (fitness is maximally affected there for
 concentrations/replicates). Let’s check the closest timepoints to 10h:
 
+    dat = read.csv('doc/tasks/03_dat.csv')
     filter(dat, Time_h > 9.5, Time_h < 10.5) %>%
        count(Time_h)
 
-    ## # A tibble: 4 × 4
-    ## # Groups:   Date, Plt, Time_h [4]
-    ##   Date         Plt Time_h     n
-    ##   <date>     <dbl>  <dbl> <int>
-    ## 1 2022-05-04     4   9.73    12
-    ## 2 2022-05-05     2   9.73    12
-    ## 3 2022-05-13     1   9.73    12
-    ## 4 2022-05-13     6   9.74    12
+    ##   Time_h  n
+    ## 1   9.73 36
+    ## 2   9.74 12
 
 Good, filtering for `Time_h` between 9.5 and 10.5 h gives a desired
 result.
