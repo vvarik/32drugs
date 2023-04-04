@@ -107,6 +107,7 @@ score the effect of a drug (fitness is maximally affected there for
 concentrations/replicates). Let's check the closest timepoints to 10h:
  
 ```{r echo=T}
+dat = read.csv('doc/tasks/03_dat.csv')
 filter(dat, Time_h > 9.5, Time_h < 10.5) %>%
    count(Time_h)
 ```
