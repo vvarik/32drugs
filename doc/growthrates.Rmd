@@ -160,7 +160,7 @@ p   = c(y0 = 0.02,  mumax = 1,    K = 0.1,  h0 = 1)  # intial pars start
 lwr = c(y0 = 0.01,  mumax = 1e-2, K = 0.06, h0 = 0)  # lower limits
 upr = c(y0 = 0.06,  mumax = 2,    K = 1,    h0 = 30) # upper limits
 
-mod = all_growthmodels(
+mod4 = all_growthmodels(
   value ~ grow_baranyi(time, parms) | replicate,
   data = sub,
   p = p, lower = lwr, upper = upr,
@@ -174,14 +174,14 @@ For this particular data, the Baranyi & Roberts model is not the best fit (or if
 
 ```{r}
 par(mfrow=c(1, 2))
-plot(mod3, log='y', ylim=c(0.01, 0.64))
+plot(mod4, log='y', ylim=c(0.01, 0.64))
 ```
 
 And the results can be extracted as before:
 
 ```{r}
-res3 = results(mod3)
-head(res3) %>% mutate_if(is.numeric, round, 3)
+res4 = results(mod4)
+head(res4) %>% mutate_if(is.numeric, round, 3)
 #   replicate    y0 mumax     K     h0    r2
 # 1         1 0.016 0.272 0.095  0.447 0.983
 # 2         2 0.013 0.239 0.096 -0.177 0.975
