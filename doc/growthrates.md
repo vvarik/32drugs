@@ -4,18 +4,20 @@
 
 # Get ready
 
-[Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html),
-an R package that helps to do all sort of growth rate estimations.
+[Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html)
+is an R package that helps to do all sort of growth rate estimations.
+Broadly speaking, there are two options:
+
+-   **loglinear** – estimate growth rate from linear part of the log
+    transfromed curve
+-   **growth model** – assume the growth curve can be approximated by a
+    specific equation
+
+<!-- -->
 
     # load the libraries
     library(tidyverse)
     library(growthrates)
-
-Growthrates contains multiple options to estimate growthrates. Broadly
-speaking, there are two options:
-
--   growth rate from linear part of the log transfromed curve
--   assuming the growth curve can be approximated by a specific equation
 
 # Loglinear
 

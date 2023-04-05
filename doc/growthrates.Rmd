@@ -11,7 +11,13 @@ output:
 
 # Get ready
 
-[Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html), an R package that helps to do all sort of growth rate estimations.
+[Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html) is an R package that helps to do all sort of growth rate estimations. Broadly speaking, there are two options:
+
+- **loglinear** -- estimate growth rate from linear part of the log
+  transfromed curve
+- **growth model** -- assume the growth curve can be approximated by
+  a specific equation
+
 
 ```{r}
 # load the libraries
@@ -19,17 +25,13 @@ library(tidyverse)
 library(growthrates)
 ```
 
-Growthrates contains multiple options to estimate growthrates. Broadly speaking, there are two options:
-
-- growth rate from linear part of the log transfromed curve
-- assuming the growth curve can be approximated by a specific equation
 
 # Loglinear
 
-We will illustrate the use of `growthrates` with one of its own in-built
-datasets, `bactgrowth`. Dataset contains bacterial growth measurements upon
-different concentrations of tetracycline antibiotic. We are concerned with the
-variables:
+We will illustrate the use of `growthrates` with one of its own built-in
+datasets, `bactgrowth`. The dataset contains bacterial growth measurements
+upon different concentrations of tetracycline, an antibiotic. We are concerned
+with the variables:
 
 - `strain` is for three bacterial strains (`D`, `R`, `T`)
 - `value` is for measured OD
@@ -38,8 +40,9 @@ variables:
 - `time` in hours
 
 ```{r}
-# for more info
 str(bactgrowth)
+
+# for more info
 ?bactgrowth
 ```
 
