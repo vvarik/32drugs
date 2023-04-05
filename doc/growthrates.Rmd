@@ -14,7 +14,7 @@ output:
 [Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html) is an R package that helps to do all sort of growth rate estimations. Broadly speaking, there are two options:
 
 - **loglinear** -- estimate growth rate from linear part of the log
-  transfromed curve
+  transformed curve
 - **growth model** -- assume the growth curve can be approximated by
   a specific equation
 
@@ -73,7 +73,7 @@ par(mfrow=c(1, 2))
 plot(mod1, log='y')
 ```
    
-   ![](doc/tasks/growthrates_loglinear.png)
+   ![](tasks/growthrates_loglinear.png)
 
 Looks good. The red points highlight the timepoints used for estimating the growth rate, default minimum value is 5 and can be adjusted by `h` parameter of `all_easylinear()` function. 
 
@@ -179,7 +179,7 @@ par(mfrow=c(1, 2))
 plot(mod4, log='y', ylim=c(0.01, 0.64))
 ```
 
-   ![](doc/tasks/growthrates_baranyi.png)
+   ![](tasks/growthrates_baranyi.png)
 
 For this particular data, the Baranyi & Roberts model is not the best fit (or if you find better starting parametes & limits, let me know vvarik.mail@gmail.com). It can prove to be very useful, however, if there are not enough datapoints on the linear part of the exponential growth phase.
 

@@ -9,7 +9,7 @@ is an R package that helps to do all sort of growth rate estimations.
 Broadly speaking, there are two options:
 
 -   **loglinear** – estimate growth rate from linear part of the log
-    transfromed curve
+    transformed curve
 -   **growth model** – assume the growth curve can be approximated by a
     specific equation
 
@@ -70,7 +70,7 @@ We can see how the fit looks like by plotting
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
-![](doc/tasks/growthrates_loglinear.png)
+![](tasks/growthrates_loglinear.png)
 
 Looks good. The red points highlight the timepoints used for estimating
 the growth rate, default minimum value is 5 and can be adjusted by `h`
@@ -201,7 +201,7 @@ How do the resulting fits look like?
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
-![](doc/tasks/growthrates_baranyi.png)
+![](tasks/growthrates_baranyi.png)
 
 For this particular data, the Baranyi & Roberts model is not the best
 fit (or if you find better starting parametes & limits, let me know
