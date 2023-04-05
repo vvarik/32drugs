@@ -3,13 +3,15 @@
     -   [Explore](#explore)
     -   [Transform](#transform)
     -   [Model](#model)
-
-\[\[*TOC*\]\]
+-   [Growth rates](#growth-rates)
 
 # Motivation
 
 Getting up to speed with R using dose-response for 32 drugs against 6
-bacterial strains.
+bacterial strains. It assumes familiarity with `R` in general and
+`ggplot2` in particular. I recommend introductory courses from
+[DataCamp](https://www.datacamp.com/data-courses/r-courses) or
+[Coursera](https://www.coursera.org/learn/r-programming).
 
 # Tasks
 
@@ -162,3 +164,18 @@ result.
     Now the MIC (IC<sub>95</sub>) should be the same you got with `LL.4`
     (33 µM), but the confidence intervals are symmetric, about 2x lower
     and 2x higher.
+
+# Growth rates
+
+Some people are strong affectionados of growth-rate based estimation of
+drug effect. So you might have an inclination/motivation to do just
+that. There are two ways to go about it: 1) estimate the slope from a
+log transformed growth curve; 2) apply a specific growth model.
+
+Background knowledge needed to proceed: - [Formula
+interface](doc/formulaR.md), which we visited already above -
+\[Introduction to growthrates\] package
+
+1.  Estimating growth rate from log phase slope makes fewer assumptions
+    and generally works well. The major requirement is to have at least
+    3-4 datapoints from the exponential part of the growth curve.
