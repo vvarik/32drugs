@@ -1,0 +1,213 @@
+-   [Get ready](#get-ready)
+-   [Loglinear](#loglinear)
+-   [Growth model](#growth-model)
+
+# Get ready
+
+[Growthrates](https://cran.r-project.org/web/packages/growthrates/vignettes/Introduction.html),
+an R package that helps to do all sort of growth rate estimations.
+
+    # load the libraries
+    library(tidyverse)
+    library(growthrates)
+
+Growthrates contains multiple options to estimate growthrates. Broadly
+speaking, there are two options:
+
+-   growth rate from linear part of the log transfromed curve
+-   assuming the growth curve can be approximated by a specific equation
+
+# Loglinear
+
+We will illustrate the use of `growthrates` with one of its own in-built
+datasets, `bactgrowth`. Dataset contains bacterial growth measurements
+upon different concentrations of tetracycline antibiotic. We are
+concerned with the variables:
+
+-   `strain` is for three bacterial strains (`D`, `R`, `T`)
+-   `value` is for measured OD
+-   `conc` all bacterial strains were tested on across 12 concentrations
+    (one of them zero i.e. no drug control)
+-   `time` in hours
+
+<!-- -->
+
+    # for more info
+    str(bactgrowth)
+
+    ## 'data.frame':    2232 obs. of  5 variables:
+    ##  $ strain   : Factor w/ 3 levels "D","R","T": 3 3 3 3 3 3 3 3 3 3 ...
+    ##  $ replicate: int  2 2 2 2 2 2 2 2 2 2 ...
+    ##  $ conc     : num  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ time     : int  0 1 2 3 4 5 6 7 8 9 ...
+    ##  $ value    : num  0.013 0.014 0.017 0.022 0.03 0.039 0.042 0.045 0.048 0.049 ...
+
+    ?bactgrowth
+
+To keep it simple, let us first estimate growth rate for strain `D` at
+zero concentration
+
+    sub = bactgrowth %>% 
+      filter(strain=='D', conc==0)
+
+The `growthrates` function to estimate growth rate from the linear part
+of log transformed curve is `all_easylinear()`
+
+    mod1 = all_easylinear(
+      # estimate value as a function of time, 
+      # grouped by replicate
+      value ~ time | replicate,
+      data = sub
+    )
+
+We can see how the fit looks like by plotting
+
+    # set the layout for two plots (two replicates)
+    par(mfrow=c(1, 2))
+    plot(mod1, log='y')
+
+![](growthrates_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+
+Looks good. The red points highlight the timepoints used for estimating
+the growth rate, default minimum value is 5 and can be adjusted by `h`
+parameter of `all_easylinear()` function.
+
+You can get the coeficients, most importantly the growth rate `mumax` by
+the conventional R function `coef()` or by `results()`:
+
+    coef(mod1)
+
+    ##      y0       y0_lm     mumax      lag
+    ## 1 0.018 0.012348195 0.2048985 1.839261
+    ## 2 0.014 0.008513917 0.2765472 1.798446
+
+    #      y0       y0_lm     mumax      lag
+    # 1 0.018 0.012348195 0.2048985 1.839261
+    # 2 0.014 0.008513917 0.2765472 1.798446
+    results(mod1)
+
+    ##   replicate    y0       y0_lm     mumax      lag        r2
+    ## 1         1 0.018 0.012348195 0.2048985 1.839261 0.9832876
+    ## 2         2 0.014 0.008513917 0.2765472 1.798446 0.9524807
+
+    #   replicate    y0       y0_lm     mumax      lag        r2
+    # 1         1 0.018 0.012348195 0.2048985 1.839261 0.9832876
+    # 2         2 0.014 0.008513917 0.2765472 1.798446 0.9524807
+
+The latter is preferred as it gives you r^2 and coeficients are
+organized by the metadata (here, by replicates).
+
+The formula interface allows to expand the model to fit all the strains,
+at every concentration and replicate as easily as:
+
+    mod2 = all_easylinear(
+      value ~ time | strain + conc + replicate,
+      data = bactgrowth
+    )
+
+And all the results
+
+    res2 = results(mod2)
+    nrow(res2)  # 72
+
+    ## [1] 72
+
+    # show first six
+    head(res2) %>% mutate_if(is.numeric, round, 3)
+
+    ##          strain conc replicate    y0 y0_lm mumax   lag    r2
+    ## D:0:1         D 0.00         1 0.018 0.012 0.205 1.839 0.983
+    ## R:0:1         R 0.00         1 0.011 0.009 0.256 0.857 0.982
+    ## T:0:1         T 0.00         1 0.009 0.006 0.312 1.353 0.993
+    ## D:0.24:1      D 0.24         1 0.023 0.015 0.190 2.354 0.992
+    ## R:0.24:1      R 0.24         1 0.017 0.014 0.053 3.542 0.990
+    ## T:0.24:1      T 0.24         1 0.016 0.012 0.212 1.446 0.980
+
+    #          strain conc replicate    y0 y0_lm mumax   lag    r2
+    # D:0:1         D 0.00         1 0.018 0.012 0.205 1.839 0.983
+    # R:0:1         R 0.00         1 0.011 0.009 0.256 0.857 0.982
+    # T:0:1         T 0.00         1 0.009 0.006 0.312 1.353 0.993
+    # D:0.24:1      D 0.24         1 0.023 0.015 0.190 2.354 0.992
+    # R:0.24:1      R 0.24         1 0.017 0.014 0.053 3.542 0.990
+    # T:0.24:1      T 0.24         1 0.016 0.012 0.212 1.446 0.980
+
+# Growth model
+
+There are multiple models (equations) that could potentially describe
+the growth curve and `growthrates` package can be used to fit several of
+them, including the user defined model and the four parametric log
+logistic model we used to fit dose-response curves.
+
+We are going to focus on one of the most widely used model of [Baranyi
+and Roberts](https://pubmed.ncbi.nlm.nih.gov/7873331/). This one:
+
+-   requires `grow_baranyi()` function to be called within
+    `all_growthmodels()` function
+-   needs to be provided some sane starter values for parameters, which
+    it uses to start the search for final parameters
+
+<!-- -->
+
+    # initial parameters and constraints
+    # y0:     starting OD
+    # mumax:  growthrate
+    # K:      final OD
+    # h0:     the greater it is the greater the lag phase 
+    p =   c(y0 = 0.02,  mumax = 1,    K = 0.1,   h0 = 1)  # intial pars start
+
+    mod3 = all_growthmodels(
+      value ~ grow_baranyi(time, parms) | replicate,
+      data = sub,
+      p = p, 
+      transform = "log"
+    )
+
+    par(mfrow=c(1, 2))
+    plot(mod3, log='y', ylim=c(0.01, 0.64))
+
+![](growthrates_files/figure-markdown_strict/unnamed-chunk-9-1.png)
+
+Optionally, `all_growthmodels()` can also be provided with some lower
+and upper limits for parameters, which are sometimes very useful. For
+instance, one could set the upper limit of mumax to 2, which corresponds
+to about 20 min doubling time. This can be done like this:
+
+    p   = c(y0 = 0.02,  mumax = 1,    K = 0.1,  h0 = 1)  # intial pars start
+    lwr = c(y0 = 0.01,  mumax = 1e-2, K = 0.06, h0 = 0)  # lower limits
+    upr = c(y0 = 0.06,  mumax = 2,    K = 1,    h0 = 30) # upper limits
+
+    mod = all_growthmodels(
+      value ~ grow_baranyi(time, parms) | replicate,
+      data = sub,
+      p = p, lower = lwr, upper = upr,
+      transform = "log"
+    )
+
+One should not take it casually which initial parameters are provided.
+If the starter values are too low, for instance, it is rather easy for
+the algorithm to arrive at some local minimum. Some trial-and-error here
+goes a long way: fitting and plotting (preferably many different curves
+in parallel) to see what works. Don’t expect an ideal solution though,
+find out what works the best and move on.
+
+For this particular data, the Baranyi & Roberts model is not the best
+fit (or if you find better starting parametes & limits, let me know
+<vvarik.mail@gmail.com>).
+
+    par(mfrow=c(1, 2))
+    plot(mod3, log='y', ylim=c(0.01, 0.64))
+
+![](growthrates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
+
+And the results can be extracted as before:
+
+    res3 = results(mod3)
+    head(res3) %>% mutate_if(is.numeric, round, 3)
+
+    ##   replicate    y0 mumax     K     h0    r2
+    ## 1         1 0.016 0.272 0.095  0.447 0.983
+    ## 2         2 0.013 0.239 0.096 -0.177 0.975
+
+    #   replicate    y0 mumax     K     h0    r2
+    # 1         1 0.016 0.272 0.095  0.447 0.983
+    # 2         2 0.013 0.239 0.096 -0.177 0.975

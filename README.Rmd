@@ -152,3 +152,16 @@ Good, filtering for `Time_h` between 9.5 and 10.5 h gives a desired result.
 
     Now the MIC (IC~95~) should be the same you got with `LL.4` (33 µM), but
     the confidence intervals are symmetric, about 2x lower and 2x higher.
+
+# Growth rates
+
+Some people are strong affectionados of growth-rate based estimation of drug
+effect. So you might have an inclination/motivation to do just that. There are
+two ways to go about it: 1) estimate the slope from a log transformed growth
+curve; 2) apply a specific growth model.
+
+Background knowledge needed to proceed:
+- [Formula interface](doc/formulaR.md), which we visited already above
+- [Introduction to growthrates] package
+
+
