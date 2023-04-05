@@ -178,8 +178,10 @@ How do the resulting fits look like?
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 For this particular data, the Baranyi & Roberts model is not the best
-fit (or if you find better starting parametes & limits, let me know
-<vvarik.mail@gmail.com>). It can prove to be very useful, however, if
+fit (or if you find better starting parametes & limits, let me know:
+<vvarik.mail@gmail.com>). One probable issue is that the starting
+plateau, the lag phase, does not have enough points to be accurately
+estimated. Regardless, Baranyi & Roberts model can prove very useful, if
 there are not enough datapoints on the linear part of the exponential
 growth phase.
 

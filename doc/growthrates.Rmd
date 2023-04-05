@@ -160,7 +160,7 @@ par(mfrow=c(1, 2))
 plot(mod4, log='y', ylim=c(0.01, 0.64))
 ```
 
-For this particular data, the Baranyi & Roberts model is not the best fit (or if you find better starting parametes & limits, let me know vvarik.mail@gmail.com). It can prove to be very useful, however, if there are not enough datapoints on the linear part of the exponential growth phase.
+For this particular data, the Baranyi & Roberts model is not the best fit (or if you find better starting parametes & limits, let me know: vvarik.mail@gmail.com). One probable issue is that the starting plateau, the lag phase, does not have enough points to be accurately estimated. Regardless, Baranyi & Roberts model can prove very useful, if there are not enough datapoints on the linear part of the exponential growth phase.
 
 And the parameters can be extracted as before:
 
