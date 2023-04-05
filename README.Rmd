@@ -163,8 +163,3 @@ Background knowledge needed to proceed:
 
 - [Formula interface](doc/formulaR.md), which we visited already above
 - [Introduction to growthrates](doc/growthrates.md) package
-
-
-11. Estimating growth rate from log phase slope makes fewer assumptions and
-    generally works well. The major requirement is to have at least 3-4
-    datapoints from the exponential part of the growth curve.
