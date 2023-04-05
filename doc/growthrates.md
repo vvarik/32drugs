@@ -21,10 +21,10 @@ Broadly speaking, there are two options:
 
 # Loglinear
 
-We will illustrate the use of `growthrates` with one of its own in-built
-datasets, `bactgrowth`. Dataset contains bacterial growth measurements
-upon different concentrations of tetracycline antibiotic. We are
-concerned with the variables:
+We will illustrate the use of `growthrates` with one of its own built-in
+datasets, `bactgrowth`. The dataset contains bacterial growth
+measurements upon different concentrations of tetracycline, an
+antibiotic. We are concerned with the variables:
 
 -   `strain` is for three bacterial strains (`D`, `R`, `T`)
 -   `value` is for measured OD
@@ -34,7 +34,6 @@ concerned with the variables:
 
 <!-- -->
 
-    # for more info
     str(bactgrowth)
 
     ## 'data.frame':    2232 obs. of  5 variables:
@@ -44,6 +43,7 @@ concerned with the variables:
     ##  $ time     : int  0 1 2 3 4 5 6 7 8 9 ...
     ##  $ value    : num  0.013 0.014 0.017 0.022 0.03 0.039 0.042 0.045 0.048 0.049 ...
 
+    # for more info
     ?bactgrowth
 
 To keep it simple, let us first estimate growth rate for strain `D` at
@@ -69,6 +69,8 @@ We can see how the fit looks like by plotting
     plot(mod1, log='y')
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+
+![](doc/tasks/growthrates_loglinear.png)
 
 Looks good. The red points highlight the timepoints used for estimating
 the growth rate, default minimum value is 5 and can be adjusted by `h`
@@ -178,7 +180,7 @@ to about 20 min doubling time. This can be done like this:
     lwr = c(y0 = 0.01,  mumax = 1e-2, K = 0.06, h0 = 0)  # lower limits
     upr = c(y0 = 0.06,  mumax = 2,    K = 1,    h0 = 30) # upper limits
 
-    mod = all_growthmodels(
+    mod4 = all_growthmodels(
       value ~ grow_baranyi(time, parms) | replicate,
       data = sub,
       p = p, lower = lwr, upper = upr,
@@ -197,18 +199,20 @@ fit (or if you find better starting parametes & limits, let me know
 <vvarik.mail@gmail.com>).
 
     par(mfrow=c(1, 2))
-    plot(mod3, log='y', ylim=c(0.01, 0.64))
+    plot(mod4, log='y', ylim=c(0.01, 0.64))
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
+![](doc/tasks/growthrates_baranyi.png)
+
 And the results can be extracted as before:
 
-    res3 = results(mod3)
-    head(res3) %>% mutate_if(is.numeric, round, 3)
+    res4 = results(mod4)
+    head(res4) %>% mutate_if(is.numeric, round, 3)
 
-    ##   replicate    y0 mumax     K     h0    r2
-    ## 1         1 0.016 0.272 0.095  0.447 0.983
-    ## 2         2 0.013 0.239 0.096 -0.177 0.975
+    ##   replicate    y0 mumax     K    h0    r2
+    ## 1         1 0.016 0.272 0.095 0.447 0.983
+    ## 2         2 0.013 0.258 0.095 0.000 0.975
 
     #   replicate    y0 mumax     K     h0    r2
     # 1         1 0.016 0.272 0.095  0.447 0.983
