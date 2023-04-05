@@ -74,7 +74,9 @@ the growth rate, default minimum value is 5 and can be adjusted by `h`
 parameter of `all_easylinear()` function.
 
 You can get the coeficients, most importantly the growth rate `mumax`,
-by the conventional R function `coef()` or by `results()`:
+by the conventional R function `coef()` or by `results()`. The latter is
+preferred as it gives you r<sup>2</sup> and coeficients are organized by
+the metadata (here, by replicates):
 
     coef(mod1)
 
@@ -82,21 +84,11 @@ by the conventional R function `coef()` or by `results()`:
     ## 1 0.018 0.012348195 0.2048985 1.839261
     ## 2 0.014 0.008513917 0.2765472 1.798446
 
-    #      y0       y0_lm     mumax      lag
-    # 1 0.018 0.012348195 0.2048985 1.839261
-    # 2 0.014 0.008513917 0.2765472 1.798446
     results(mod1)
 
     ##   replicate    y0       y0_lm     mumax      lag        r2
     ## 1         1 0.018 0.012348195 0.2048985 1.839261 0.9832876
     ## 2         2 0.014 0.008513917 0.2765472 1.798446 0.9524807
-
-    #   replicate    y0       y0_lm     mumax      lag        r2
-    # 1         1 0.018 0.012348195 0.2048985 1.839261 0.9832876
-    # 2         2 0.014 0.008513917 0.2765472 1.798446 0.9524807
-
-The latter is preferred as it gives you r<sup>2</sup> and coeficients
-are organized by the metadata (here, by replicates).
 
 The formula interface allows to expand the model to fit all the strains,
 at every concentration and replicate as easily as:
@@ -128,8 +120,8 @@ And all the results
 
 There are multiple models (equations) that could potentially describe
 the growth curve and `growthrates` package can be used to fit several of
-them, including the user defined model and the four parametric log
-logistic model we used to fit dose-response curves.
+them, including the totally user defined model and the four parametric
+log logistic model we used to fit dose-response curves.
 
 We are going to focus on one of the most widely used model of [Baranyi
 and Roberts](https://pubmed.ncbi.nlm.nih.gov/7873331/). This one:
