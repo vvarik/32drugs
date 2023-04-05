@@ -160,8 +160,9 @@ two ways to go about it: 1) estimate the slope from a log transformed growth
 curve; 2) apply a specific growth model.
 
 Background knowledge needed to proceed:
+
 - [Formula interface](doc/formulaR.md), which we visited already above
-- [Introduction to growthrates] package
+- [Introduction to growthrates](doc/growthrates.md) package
 
 
 11. Estimating growth rate from log phase slope makes fewer assumptions and

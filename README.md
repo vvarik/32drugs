@@ -172,9 +172,10 @@ drug effect. So you might have an inclination/motivation to do just
 that. There are two ways to go about it: 1) estimate the slope from a
 log transformed growth curve; 2) apply a specific growth model.
 
-Background knowledge needed to proceed: - [Formula
-interface](doc/formulaR.md), which we visited already above -
-\[Introduction to growthrates\] package
+Background knowledge needed to proceed:
+
+-   [Formula interface](doc/formulaR.md), which we visited already above
+-   [Introduction to growthrates](doc/growthrates.md) package
 
 1.  Estimating growth rate from log phase slope makes fewer assumptions
     and generally works well. The major requirement is to have at least
