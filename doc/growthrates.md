@@ -127,14 +127,6 @@ And all the results
     ## R:0.24:1      R 0.24         1 0.017 0.014 0.053 3.542 0.990
     ## T:0.24:1      T 0.24         1 0.016 0.012 0.212 1.446 0.980
 
-    #          strain conc replicate    y0 y0_lm mumax   lag    r2
-    # D:0:1         D 0.00         1 0.018 0.012 0.205 1.839 0.983
-    # R:0:1         R 0.00         1 0.011 0.009 0.256 0.857 0.982
-    # T:0:1         T 0.00         1 0.009 0.006 0.312 1.353 0.993
-    # D:0.24:1      D 0.24         1 0.023 0.015 0.190 2.354 0.992
-    # R:0.24:1      R 0.24         1 0.017 0.014 0.053 3.542 0.990
-    # T:0.24:1      T 0.24         1 0.016 0.012 0.212 1.446 0.980
-
 # Growth model
 
 There are multiple models (equations) that could potentially describe
@@ -217,7 +209,3 @@ And the parameters can be extracted as before:
     ##   replicate    y0 mumax     K    h0    r2
     ## 1         1 0.016 0.272 0.095 0.447 0.983
     ## 2         2 0.013 0.258 0.095 0.000 0.975
-
-    #   replicate    y0 mumax     K     h0    r2
-    # 1         1 0.016 0.272 0.095  0.447 0.983
-    # 2         2 0.013 0.239 0.096 -0.177 0.975
