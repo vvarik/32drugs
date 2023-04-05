@@ -58,8 +58,7 @@ curve is `all_easylinear()`
 
 ```{r}
 mod1 = all_easylinear(
-  # estimate value as a function of time, 
-  # grouped by replicate
+  # estimate value as a function of time, grouped by replicate
   value ~ time | replicate,
   data = sub
 )

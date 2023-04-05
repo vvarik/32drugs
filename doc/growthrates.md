@@ -56,8 +56,7 @@ The function to estimate growth rate from the linear part of log
 transformed curve is `all_easylinear()`
 
     mod1 = all_easylinear(
-      # estimate value as a function of time, 
-      # grouped by replicate
+      # estimate value as a function of time, grouped by replicate
       value ~ time | replicate,
       data = sub
     )
