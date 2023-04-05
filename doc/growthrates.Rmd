@@ -180,5 +180,5 @@ And the parameters can be extracted as before:
 
 ```{r}
 res4 = results(mod4)
-head(res4) %>% mutate_if(is.numeric, round, 3)
+res4 %>% mutate_if(is.numeric, round, 3)
 ```

@@ -204,7 +204,7 @@ growth phase.
 And the parameters can be extracted as before:
 
     res4 = results(mod4)
-    head(res4) %>% mutate_if(is.numeric, round, 3)
+    res4 %>% mutate_if(is.numeric, round, 3)
 
     ##   replicate    y0 mumax     K    h0    r2
     ## 1         1 0.016 0.272 0.095 0.447 0.983
