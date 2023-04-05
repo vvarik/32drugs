@@ -172,7 +172,7 @@ mod4 = all_growthmodels(
 
 One should not take it casually which initial parameters are provided. If the starter values are too low, for instance, it is rather easy for the algorithm to arrive at some local minimum. Some trial-and-error here goes a long way: fitting and plotting (preferably many different curves in parallel) to see what works. Don't expect an ideal solution though, find out what works the best and move on.
 
-For this particular data, the Baranyi & Roberts model is not the best fit (or if you find better starting parametes & limits, let me know vvarik.mail@gmail.com).
+For this particular data, the Baranyi & Roberts model is not the best fit (or if you find better starting parametes & limits, let me know vvarik.mail@gmail.com). It can prove to be very useful, however, if there are not enough datapoints on the linear part of the exponential growth phase.
 
 ```{r}
 par(mfrow=c(1, 2))

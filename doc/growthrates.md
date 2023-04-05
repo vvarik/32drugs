@@ -196,7 +196,9 @@ find out what works the best and move on.
 
 For this particular data, the Baranyi & Roberts model is not the best
 fit (or if you find better starting parametes & limits, let me know
-<vvarik.mail@gmail.com>).
+<vvarik.mail@gmail.com>). It can prove to be very useful, however, if
+there are not enough datapoints on the linear part of the exponential
+growth phase.
 
     par(mfrow=c(1, 2))
     plot(mod4, log='y', ylim=c(0.01, 0.64))
