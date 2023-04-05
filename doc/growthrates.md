@@ -70,8 +70,6 @@ We can see how the fit looks like by plotting
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
-![](tasks/growthrates_loglinear.png)
-
 Looks good. The red points highlight the timepoints used for estimating
 the growth rate, default minimum value is 5 and can be adjusted by `h`
 parameter of `all_easylinear()` function.
@@ -192,8 +190,6 @@ How do the resulting fits look like?
     plot(mod4, log='y', ylim=c(0.01, 0.64))
 
 ![](growthrates_files/figure-markdown_strict/unnamed-chunk-11-1.png)
-
-![](tasks/growthrates_baranyi.png)
 
 For this particular data, the Baranyi & Roberts model is not the best
 fit (or if you find better starting parametes & limits, let me know
