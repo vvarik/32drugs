@@ -52,8 +52,8 @@ zero concentration
     sub = bactgrowth %>% 
       filter(strain=='D', conc==0)
 
-The `growthrates` function to estimate growth rate from the linear part
-of log transformed curve is `all_easylinear()`
+The function to estimate growth rate from the linear part of log
+transformed curve is `all_easylinear()`
 
     mod1 = all_easylinear(
       # estimate value as a function of time, 
@@ -76,8 +76,8 @@ Looks good. The red points highlight the timepoints used for estimating
 the growth rate, default minimum value is 5 and can be adjusted by `h`
 parameter of `all_easylinear()` function.
 
-You can get the coeficients, most importantly the growth rate `mumax` by
-the conventional R function `coef()` or by `results()`:
+You can get the coeficients, most importantly the growth rate `mumax`,
+by the conventional R function `coef()` or by `results()`:
 
     coef(mod1)
 
@@ -98,8 +98,8 @@ the conventional R function `coef()` or by `results()`:
     # 1         1 0.018 0.012348195 0.2048985 1.839261 0.9832876
     # 2         2 0.014 0.008513917 0.2765472 1.798446 0.9524807
 
-The latter is preferred as it gives you r^2 and coeficients are
-organized by the metadata (here, by replicates).
+The latter is preferred as it gives you r<sup>2</sup> and coeficients
+are organized by the metadata (here, by replicates).
 
 The formula interface allows to expand the model to fit all the strains,
 at every concentration and replicate as easily as:
@@ -112,7 +112,7 @@ at every concentration and replicate as easily as:
 And all the results
 
     res2 = results(mod2)
-    nrow(res2)  # 72
+    nrow(res2)  # 3 strains × 12 conc × 2 reps 
 
     ## [1] 72
 
@@ -194,11 +194,7 @@ goes a long way: fitting and plotting (preferably many different curves
 in parallel) to see what works. Don’t expect an ideal solution though,
 find out what works the best and move on.
 
-For this particular data, the Baranyi & Roberts model is not the best
-fit (or if you find better starting parametes & limits, let me know
-<vvarik.mail@gmail.com>). It can prove to be very useful, however, if
-there are not enough datapoints on the linear part of the exponential
-growth phase.
+How do the resulting fits look like?
 
     par(mfrow=c(1, 2))
     plot(mod4, log='y', ylim=c(0.01, 0.64))
@@ -207,7 +203,13 @@ growth phase.
 
 ![](doc/tasks/growthrates_baranyi.png)
 
-And the results can be extracted as before:
+For this particular data, the Baranyi & Roberts model is not the best
+fit (or if you find better starting parametes & limits, let me know
+<vvarik.mail@gmail.com>). It can prove to be very useful, however, if
+there are not enough datapoints on the linear part of the exponential
+growth phase.
+
+And the parameters can be extracted as before:
 
     res4 = results(mod4)
     head(res4) %>% mutate_if(is.numeric, round, 3)
