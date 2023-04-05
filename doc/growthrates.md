@@ -106,7 +106,8 @@ And all the results
     ## [1] 72
 
     # show first six
-    head(res2) %>% mutate_if(is.numeric, round, 3)
+    head(res2) %>% 
+      mutate_if(is.numeric, round, 3)  # get rid of extra digits
 
     ##          strain conc replicate    y0 y0_lm mumax   lag    r2
     ## D:0:1         D 0.00         1 0.018 0.012 0.205 1.839 0.983
@@ -188,7 +189,8 @@ growth phase.
 And the parameters can be extracted as before:
 
     res4 = results(mod4)
-    res4 %>% mutate_if(is.numeric, round, 3)
+    res4 %>% 
+      mutate_if(is.numeric, round, 3)  # get rid of extra digits
 
     ##   replicate    y0 mumax     K    h0    r2
     ## 1         1 0.016 0.272 0.095 0.447 0.983

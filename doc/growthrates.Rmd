@@ -101,7 +101,8 @@ res2 = results(mod2)
 nrow(res2)  # 3 strains × 12 conc × 2 reps 
 
 # show first six
-head(res2) %>% mutate_if(is.numeric, round, 3)
+head(res2) %>% 
+  mutate_if(is.numeric, round, 3)  # get rid of extra digits
 ```
 
 # Growth model
@@ -166,5 +167,6 @@ And the parameters can be extracted as before:
 
 ```{r}
 res4 = results(mod4)
-res4 %>% mutate_if(is.numeric, round, 3)
+res4 %>% 
+  mutate_if(is.numeric, round, 3)  # get rid of extra digits
 ```
