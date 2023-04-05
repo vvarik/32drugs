@@ -138,9 +138,6 @@ mod3 = all_growthmodels(
   p = p, 
   transform = "log"
 )
-
-par(mfrow=c(1, 2))
-plot(mod3, log='y', ylim=c(0.01, 0.64))
 ```
 
 Optionally, `all_growthmodels()` can also be provided with some lower and

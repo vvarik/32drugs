@@ -156,11 +156,6 @@ and Roberts](https://pubmed.ncbi.nlm.nih.gov/7873331/). This one:
       transform = "log"
     )
 
-    par(mfrow=c(1, 2))
-    plot(mod3, log='y', ylim=c(0.01, 0.64))
-
-![](growthrates_files/figure-markdown_strict/unnamed-chunk-9-1.png)
-
 Optionally, `all_growthmodels()` can also be provided with some lower
 and upper limits for parameters, which are sometimes very useful. For
 instance, one could set the upper limit of mumax to 2, which corresponds
