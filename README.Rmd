@@ -9,13 +9,13 @@ output:
       toc_depth: 2
 ---
 
-
-[[_TOC_]]
-
 # Motivation
 
-Getting up to speed with R using dose-response for 32 drugs against 6
-bacterial strains.
+Getting up to speed with R using dose-response for 32 drugs against
+6 bacterial strains. It assumes familiarity with `R` in general and `ggplot2`
+in particular. I recommend introductory courses from
+[DataCamp](https://www.datacamp.com/data-courses/r-courses) or
+[Coursera](https://www.coursera.org/learn/r-programming).
 
 
 ```{r setup, include=FALSE}
@@ -23,7 +23,6 @@ knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, dpi=300)
 knitr::opts_knit$set(global.par = TRUE)
 library('tidyverse')
 ```
-
 
 # Tasks
 
@@ -165,3 +164,6 @@ Background knowledge needed to proceed:
 - [Introduction to growthrates] package
 
 
+11. Estimating growth rate from log phase slope makes fewer assumptions and
+    generally works well. The major requirement is to have at least 3-4
+    datapoints from the exponential part of the growth curve.
