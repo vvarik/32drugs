@@ -63,7 +63,7 @@ to use the former whenever possible.
     becomes easy, I will just say that you need to subtract background
     on each day, on each plate, in each timepoint. The wells with no
     bacteria were encoded to have `uM = -1` i.e. after appropriate
-    grouping it comes down to: `OD = OD/OD[uM == -1]`. Input
+    grouping it comes down to: `OD = OD - OD[uM == -1]`. Input
     [data](doc/tasks/03_dat.csv) is the same as in step 3 above.
     Finally, plot the result exactly as in step 3 above, except have OD
     on y-axis. I choose also to drop the background control
